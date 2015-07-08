@@ -1,0 +1,241 @@
+%
+% This file is part of Calicut University Question Paper Collection.
+%
+% Copyright (c) 2012-2015 Mohammed Sadik P. K. <sadiq (at) sadiqpk (d0t) org>.
+% License: GNU GPLv3 or later
+%
+% Calicut University Question Paper Collection is free software: you can
+% redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% Calicut University Question Paper Collection is distributed in the hope
+% that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with Calicut University Question Paper Collection.
+% If not, see <http://www.gnu.org/licenses/>.
+% 
+%
+
+\def \subj{AI 09 502---SIGNALS AND SYSTEMS}
+
+\mainhead{50627}{2}
+\semfive{NOVEMBER 2013}
+\sub{\subj}
+\maxtime
+
+\partA
+
+\iitem Is the signal $x$($t$) $= 10 \cos^2(10\pi t)$ a periodic signal?
+\item Define causal system.
+\item State sampling theorem.
+\item Write down the expression for the complex-exponential fourier series
+  expansion of a periodic signal.
+\item Find the $z$-transform of $n^2 u(n)$.
+
+\markA
+\partB
+
+\item Determine and sketch the even and odd components of the continuous-time
+  signal $x(t) = e^{-t} u(t)$.
+\item Explain the condition for the stability of a system.
+\item Determine and sketch the spectrum of $x(t) = 10\sin 2\pi f_0 t$.
+\item Find the fourier transform of $x(t) = 5 \text{e}^{-2|t|}$. Plot its magnitude
+  and phase spectra.
+\item Given $F(s) = \dfrac{s + 8}{s^2 + 6s + 13}$, find $f(0)$, and $f'(0)$ using
+  the initial value theorem.
+\item Explain any two properties of z-transform.
+
+\markB
+\partC
+
+\item \iitem With suitable examples explain the basic operations on signals.
+\Or
+
+\newpage \again
+
+\item An LTI system is described by the differential equation
+  $\dfrac{\text{d}y(t)}{\text{d}t} + 6 y(t) = x(t)$. Determine its
+  impulse response and sketch its magnitude and phase response.
+\ene
+
+\item \iitem Discuss in detail about Hilbert transform and its properties.
+\Or
+\item Explain the condition for ditortionless transmission and its properties.
+\ene
+
+\item \iitem Explain DFT and its properties. Find the DFT of the sequence
+  $x(n) = \{-1, 1, -1, 1\}$.
+\Or
+\item For the DT system described by the following difference equation,
+  determine (i) the unit sample response sequence, $h(n)$ (ii) the step
+  response sequence $g(n)$ and (iii) whether it is BIBO stable.
+  \[ \text{Y} (n) = 0.6y(n - 1) - 0.08y(n - 2) + x(n) \]
+\ene
+
+\item \iitem Determine the z-transform and the ROC of the two sided signal
+  (i) $x(n) = (0.5)^{|n|}$.\\ (ii) $x(n) = (2)^{|n|}$.
+\Or
+\item With a suitable example, explain the determination of frequency
+  response from poles and zeroes
+\ene
+
+\markC
+\ene
+
+\newpage
+
+\mainhead{30969}{2}
+\semfive{NOVEMBER 2012}
+\sub{\subj}
+\maxtime
+
+\partA
+
+\iitem Define a continues time signal.
+\item State frequency shift theorem of DTFT.
+\item What is the Laplace transform of $\delta (t)$? What is its region of convergence?
+\item Write down the complex-exponential Fourier series expansion of the periodic
+  signal\\ $x(t)=2\cos 2\pi t$.
+\item Give an N-length causal sequence, $x(n)$, explain how its DTFT and N-point DFT
+  are related.
+
+\markA
+\partB
+
+\item Explain linearity and causality with suitable examples.
+\item State and prove convolution theorem.
+\item What is an Hilbert transform? Explain any two of its properties.
+\item What are poles and zeros? How they are useful in stability analysis?
+\item Find the Laplace transform of $x(t) = e^{-4t} \sin (2\pi 100t) u(t)$. 
+\item Find the unilateral Z-transform of $nu(n)$.
+
+\markB
+\partC
+
+\item \iitem Are the following discrete-time signals periodic? If they are,
+  what are their fundamental periods?
+\iitem $x(n) = 2\cos \left(\dfrac{\pi}{3}\right)n + 3 \sin
+  \left(\dfrac{\pi}{4}\right)n$
+
+\newpage \again
+
+\item $x(n) = 2\cos^2 \left(\dfrac{\pi}{6}\right)n $
+\ene
+\Or
+\item \iitem Determine and sketch the even and odd components of the continues-time
+  signal $x(t)=e^{-t}u(t).$ 
+\item Prove the following: The product of two even signals is even.
+\ene
+\ene
+
+\item \iitem $X(t) = \dfrac{1}{5} \text{sinc}\,10t.$ Sketch the Fourier transform
+  of $x(t).$ If $x(t)$ is sampled at
+\iitem $f_s = 10\ sps$
+\item $f_s = 5\ sps$
+\item $f_s = 2\ sps$.
+
+  Sketch the FT of the sampled signal for each of the above sampling frequencies. 
+\ene
+\Or
+\item 
+\iitem Find $x(n)$ if $X(e^{j\omega}) = 4 \cos^2 \omega$
+\item Compute the DTFT of $x(n) = [a^n \cos^n \omega_0n]u(n)$; $|a| < 1$.
+\ene
+\ene
+
+\item \iitem Using Laplace Transform method, solve the following differential
+  equations for the initial conditions:
+
+  $\left(\dfrac{\ud^2x(t)}{\ud t^2}\right) + \left( \dfrac{5 \ud x(t)}{\ud t}\right) +
+  6x(t) = \delta (t) + 6 u(t)\;$ 
+  with $x(0^-) = 1$ and $x'(0^-) = 2$.
+\Or
+\item \iitem Compare continues Fourier transform and discrete-time Fourier transform.
+\item Find the circular convolution of the two causal sequences
+  $\{X(n)\} = \{1,2,3,4\}$ and $ y(n) = \{ 4,3,2,1\}$.
+\ene \ene
+
+\item \iitem Determine the Z-transform and the ROC of the two-sided signals 
+\iitem $x(n) = (0.5)^{|n|}$ \item $x(n) = (2)^{|n|}$
+\ene
+\Or
+\item Discuss in detail about the analysis of LTI systems. 
+\ene
+
+\markC
+\ene
+
+\newpage
+
+\mainhead{20918}{2}
+\semfive{NOVEMBER 2011}
+\sub{\subj}
+
+\maxtime
+\partA
+
+\iitem State the difference between energy and power signals.
+\item Find the area under the signal $x(t) = 10\delta(t - 2)$.
+\item Find the Fourier transform of $x(t) = 1/t.$
+\item What is the significance of power spectral density?
+\item State the initial value theorem.
+
+\markA
+\partB
+
+\item Determine and sketch the even and odd components of the continuous-time
+  signal $x(t) = e^{-t} u(t)$.
+\item State and prove convolution theorem.
+\item State and explain Drichlet's condition for the convergence of Fourier series.
+\item Determine the DTFT of $y_1(n) = x(2n)$, given that DTFT of $x[n] = X (e^{j\omega})$.
+\item Find the Laplace transform of $x(t) = e^{-3t} \cos (2\pi 100 t) u(t)$.
+\item Find the unilateral Z-transform of $n^2 u(n)$.
+
+\markB
+\partCo
+
+\item \iitem Explain the classification of signals with suitable examples.
+\Or
+
+\newpage \again
+
+\item \iitem What is a Linear Time Invariant System? Explain.
+\item A particular LTI system has $h(t) = e^{-2t} u(t)$. Determine its output 
+  signal $y(t)$ corresponding to an input signal $x(t) = u(t)$.
+\ene \ene
+
+\item \iitem State and prove Parseval's theorem.
+\Or
+\item If $x(t) = \left[ \dfrac{t^{n - 1}}{(n-1)!}\right] e^{-at} u(t)$, where $a > 0$.
+  Show that $X(f) = \dfrac{1}{(a + j\omega)^n}.$
+\ene
+
+\item \iitem Find the circular convolution of the two causal sequences $\{x(n)\} =
+  \{1, 2, 3, 4\}$ and $y(n) = \{4, 3, 2, 1\}$ by using DFT and IDFT.
+\Or
+\item Using Laplace transform method, solve the following differential equation for 
+  the initial conditions.
+\[ \dfrac{\ud^2 x(t)}{\ud t^2} + \dfrac{5\ud x(t)}{\ud t} + 6x(t) = \delta(t) + 6u(t)\]
+
+with $x(0^-) = 1$ and $x'(0^-) = 2$.
+\ene
+
+\item Find the unilateral Z-transform of $x(n) = [ a^n \cos \omega_0 n] u(n).$
+\Or 
+\item For the Discrete time system described by the following difference equation,
+  determine 
+\iitem the unit sample response sequence $h(n)$
+\item the step response sequence $g(n)$ and
+\item whether it is BIBO stable
+
+\[ y(n) = 0.6 y(n - 1) - 0.08 y(n - 2) + x(n)\]
+\ene 
+
+\markC
+\ene 

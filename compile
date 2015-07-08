@@ -1,0 +1,14 @@
+#!/bin/bash
+make s1s2 BATCH=en
+make s3 BATCH=ai
+make s3 BATCH=en
+make s4 BATCH=ai
+make s4 BATCH=en
+make s5 BATCH=ai
+make s6 BATCH=ai
+make s6 BATCH=en
+make s6 BATCH=l
+make s7 BATCH=ai
+make s7 BATCH=l
+make s8 BATCH=ai
+make s8 BATCH=l

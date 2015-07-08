@@ -1,0 +1,265 @@
+%
+% This file is part of Calicut University Question Paper Collection.
+%
+% Copyright (c) 2012-2015 Mohammed Sadik P. K. <sadiq (at) sadiqpk (d0t) org>.
+% License: GNU GPLv3 or later
+%
+% Calicut University Question Paper Collection is free software: you can
+% redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% Calicut University Question Paper Collection is distributed in the hope
+% that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with Calicut University Question Paper Collection.
+% If not, see <http://www.gnu.org/licenses/>.
+% 
+%
+
+\def \subj{ AI 09 601---DIGITAL SIGNAL PROCESSING}
+
+
+\mainhead{C 61464}{2}
+\semsix{APRIL 2014}
+\sub{\subj}
+\maxtime
+
+\partA
+
+\iitem State sampling theorem.
+\item Define Discrete Fourier Transform of a signal.
+\item What is an IIR filter? Give an example.
+\item What is a causal system?
+\item State the advantage of parallelism.
+
+\markA
+\partB
+
+\item Discuss the relation of DFT with two other transforms.
+\item Explain any three applications of FFT.
+\item Write notes on signal flow graphs.
+\item Assume an IIR filter. Draw the Direct Form I and Direct Form II
+  structures of the filter.
+\item Discuss the characteristics of Butterworth filter.
+\item Explain pipelining.
+
+\markB
+\partCo
+
+\item
+  \iitem State and Prove the properties of DFT.
+
+\newpage \again
+
+  \Or
+  \item Find the 4-point DFT of the sequence $x(n) = \{2, 1, 4, 3\}$ by:
+    \iitem DIT FFT algorithm.
+    \item DFT FFT algorithm.
+    \ene
+  Also plot the magnitude and phase plots.
+  \ene
+
+\item
+  \iitem Explain the effects of quantization in digital structure realization.
+  \Or
+  \item Discus the following:
+    \iitem Round off Error.
+    \item Truncation Error.
+    \item Limit Cycle oscillations.
+    \ene
+  \ene  
+
+\item
+  \iitem
+    \iitem Explain the characteristics of FIR filters with linear phase.
+    \item Convert H$(s) = \dfrac{2}{\{s(s + 2)\}}$ into H($z$) by impulse invariant
+      method for a sampling frequency of 4 samples per second.
+    \ene
+\Or
+\item \iitem Using Bilinear transformation method, obtain H$(z)$ from H($s$) when
+  T = 0.5s.
+
+  H$(s) = \dfrac{4}{\{ (s+3) (s+4)\}}$
+\item Explain the design of FIR filter using window method.
+\ene
+\ene
+
+\item \iitem \iitem Explain the special instructions used in DSP.
+\item Explain the architecture of a General purpose DSP processor.\ene
+\Or
+\item \iitem Write notes on TMS320 series processors.
+\item Explain the implementation of a multiplier. \ene
+\ene
+
+\markC
+\ene
+
+\newpage
+
+\mainhead{C 41260}{2}
+\semsix{MAY 2013}
+\sub{\subj}
+\maxtime
+
+\partA
+
+\iitem Show that, for symmetric $x$($n$), $n = 0, 1\ldots, $N - 1, the DFT X($k$) = 0, for $k$ = N/2.
+\item Obtain the circular convolution of $x$[$n$] = \{1, 2, 1\} with $y$[$n$] = \{1, -1\}.
+\item Draw the lattice structure realization of the FIR filter H($z$) = 1 + $\frac{1}{2}z^{-1}$.
+\item Write the transformation equation to convert a digital low-pass filter into a digital high-pass
+  filter.
+\item What are the different buses in TMS 320 C 54 processor?
+
+\markA
+\partB
+
+\item Show that 8-point DFT can be expressed in terms of two 4-point DFTs.
+\item Let N-point DFT of $x$($n$) is X($k$). Express DFT of $x^*$($n$) and $e^{-j4\pi mn/\text{N}}x$($n$) in
+  terms of X($k$).
+\item What is overflow error? How is it prevented?
+\item Prove that a stable analog filter will be mapped to a stable digital
+  filter through impulse invariant transform.
+\item Convert the analog filter having transfer function H($s$) = $\dfrac{1}{s^2 + 3s + 2}$ into digital
+  IIR filter using impulse invariant method.
+\item With an example explain how a specific DSP hardware will increase the processing speed of a 
+  DSP algorithm implementation.
+
+\markB
+\partCo
+
+\item \iitem \iitem State and prove convolution property of DFT. \marko{5}
+\item Show that DFT of even part of a signal $x$($n$) is equal to the real part of
+  the DFT of \\ $x$($n$). \marko{5}
+\ene 
+
+\newpage \again
+
+\Or
+\item \iitem Show that DFT of two real sequences of length N can be computed using one
+  N-point DFT. \mark{6}
+\item State and prove time shifting property of DFT. \mark{4}
+\ene \ene
+
+\item \iitem Draw the direct form and lattice-ladder from realizations of the IIR filter:
+\[ \text{H(}z\text{)} = \dfrac{1 + 2z^{-1} + 3z^{-2} + 2^{-3}}{1 + 0.9z^{-1} - 0.8z^{-2} + 0.5z^{-3}}\].
+\Or
+\item Explain the limit cycle oscillations of a digital filter with respect the system described by the
+  difference equation $y$[$n$]$ = 0.95y$[$n - 1$]$ + x$[$n$]. Also determine the dead band of the filter.
+\ene
+\item \iitem Design an FIR linear phase filter using Hamming window approximating the ideal frequency
+  response:
+
+\hspace{0.5cm} H($w$) = $\begin{cases}
+  1, & \text{for }|w| \leq \frac{\pi}{4}\\
+  0, & \text{for } \frac{\pi}{4} < |w| \leq \pi
+\end{cases}$
+
+Assume filter length L = 13. Draw the filter structure in Direct form.
+\Or
+\item Design a digital IIR filter with the following specifications:\\
+  pass band = 0 - 12 kHz, stop band = 12.6 - 16 kHz, pass band ripple $<$ 0.1dB,
+  stop band attenuation $>$ 30 dB, sampling frequency = 32 kHz. Draw the filter structure
+  for the filter.
+\ene
+
+\item \iitem Describe the function of on chip peripherals of TMS 320 series processors.
+\Or
+\item What are the DSP specific processing units and instructions present in a typical digital
+  signal processor? Explain with appropriate examples.
+\ene
+
+\markC
+\ene
+
+\newpage
+
+\mainhead{C 26773}{2}
+\semsix{MAY 2012}
+\sub{\subj}
+\maxtime
+
+\partA
+
+\iitem Show that DFT is a linear transform.
+\item State the convolution property of the DFT.
+\item Name any two errors occur due to finite word length effects in DSPs.
+\item Define linear phase characteristics of a filter.
+\item What is a MAC in a DSP chip?
+
+\markA
+\partB
+
+\item Show that DFT of real signal is conjugate symmetric and DFT of a conjugate symmetric
+  signal is real.
+\item A data sequence having 10,000 samples is to be filtered using a 101 FIR filter. The filter
+  is implemented in the DFT domain using 512 point DFT and overlap add method. Find out the percentage savings
+  in computation (number of multiplications and additions required) compared to the direct implementation of
+  convolution.
+\item Draw the signal flow graph of direct form realizations (Type I and Type II) for the IIR filter
+  represented by
+
+\hspace{1cm}  $\dfrac{ 1 + 2 z^{-1} + 3 z^{-2} + 2z^{-3}}{
+    1 + 0.9z^{-1} - 0.8z^{-2} + 0.5z^{-3}}$.
+\item Using bilinear transform, determine the digital filter transfer function corresponding to the analog
+  filter.
+\item Discuss the architecture design enabling parallel processing in a Digital Signal Processor.
+
+\hspace{2cm}$\text{H(s)} = \dfrac{8 + 0.1}{(8 + 0.1)^2 + 9 }.$ Take T = 1.
+
+\markB
+
+\newpage \again
+
+\partCo
+\item 
+\iitem Show that linear convolution can be implemented through circular convolution and describe the 
+  steps involved in implementing linear filtering in the DFT domain using overlap
+  save method.
+\Or
+\item With appropriate signal flow graph, explain the implementation of decimation in time FFT 
+  algorithm for computing an eight point DFT. Also determine the number of complex multiplications
+  and additions 
+  required for the DFT computation.
+\ene
+
+\item \iitem
+  Draw the direct form realization and lattice structure realization of the FIR filter represented
+  by the transfer function H($z$)$ = 1 + 2.88z^{-1} + 3.404 z^{-2} + 1.74 z^{-3} + 0.4 z^{-4}$.
+\Or
+\item Obtain the impulse response of the filter $y(n) = x(n) + 0.5y(n-1)$ assuming four bit
+  representation for the coefficients and input $x(n).$
+\ene
+
+\item \iitem Determine the system function H(z) of the lowest-order Chebyshev digital filter that meets the following
+  specifications:
+\iitem 0.5 dB ripple in the pass-band $ 0 \leq |w| \leq 0.24\pi.$
+\item At least 50 dB attenuation in the stop-band $0.35\pi \leq |w|\leq \pi.$ Draw the Direct form II
+  implementation of the filter.
+\ene
+\Or
+\item Design an FIR linear phase filter using frequency sampling method approximating the ideal frequency response.
+
+\hspace{2cm}H($w$) $\begin{cases}
+ 1, & \text{for }  |w| \leq \dfrac{\pi}{6}\\
+ 0, &\text{for } \dfrac{\pi}{6} <  |w| \leq \pi
+\end{cases}$
+
+Assume filter length L = 11. Draw the filter structure in Direct form.
+\ene
+
+
+\item \iitem What are the distinct features of DSP processor architecture? Explain with an
+  example processor architecture.
+\Or
+\item What is meant by instruction pipelining? Explain with an example how pipelining
+  increases through put efficiency.
+\ene
+
+\markC
+\ene

@@ -1,0 +1,35 @@
+This is the README file in the source files of Calicut 
+university Question papers in LaTeX project.
+
+ Copyright (c) 2012 - 2015 Mohammed Sadik P. K.
+
+ Compiled PDF version may be available at: http://www.sadiqpk.org
+
+
+Description:
+	To compile the files simply run the `configure' file.
+
+	./configure
+
+	Now, to compile the complete files run
+	
+	./compile
+
+You may also use `make' along with parameters like `SEM,' 'BATCH' etc.
+
+   	  Eg.: make SEM=s3 BATCH=en
+
+	To see the binary PDF output files please see the `bin' directory
+in the project folder.
+
+   
+This software is a free software, copyright under GNU GPL v3 or later.
+ See the file COPYING for copying conditions.
+
+Please Note: I have missed several Changelog entries. Sorry for that most
+source files are poorly documented (but understandable).
+
+
+Note: DON'T ever use the source code of this project to learn LaTeX.  These
+were written, while I just headed into LaTeX, probably during 2011-2012.  The files
+have several ugly hacks, which should better, not be used.

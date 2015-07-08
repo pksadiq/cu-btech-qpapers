@@ -1,0 +1,370 @@
+%
+% This file is part of Calicut University Question Paper Collection.
+%
+% Copyright (c) 2012-2015 Mohammed Sadik P. K. <sadiq (at) sadiqpk (d0t) org>.
+% License: GNU GPLv3 or later
+%
+% Calicut University Question Paper Collection is free software: you can
+% redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% Calicut University Question Paper Collection is distributed in the hope
+% that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with Calicut University Question Paper Collection.
+% If not, see <http://www.gnu.org/licenses/>.
+% 
+%
+
+% This file contain commands or function definitions used widely
+% in this book (Calicut University B.Tech Question Paper)
+
+\newcounter{qpage}
+\newcounter{pager}
+\newcounter{tmppage}
+\newcommand{\mainhead}[2]{
+
+\ifthenelse {\isodd{\thepage}}{}{\thispagestyle{empty}\char255\newpage
+
+}
+
+
+\def \pcode{#1}
+\def \tpage{#2}
+\setcounter{pager}{\tpage}
+\setcounter{qpage}{0}                           % FIXME: Now its a simple hack
+\setcounter{tmppage}{\thepage}
+\fancyhead[L]{
+\begin{tabular}{@{}l@{}}
+\Large{\textbf{#1}}\\\ 
+\end{tabular}}
+
+\ifthenelse {\tpage>1}{
+\fancyfoot[R]{\textbf{Turn over}}}{}
+
+\fancyhead[C]{
+\begin{tabular}{@{}c@{}}
+{\textbf{{(\text{Pages\hspace{0.1cm}:\hspace{0.1cm}\href{http://www.sadiqpk.org}{#2}})}}}\\\ 
+\end{tabular}}
+
+\fancyhead[R]{
+\begin{tabular}{@{}l@{}}
+{\textbf{Name: ...............................}}\\
+{\textbf{Reg. No: ...........................}}
+\end{tabular}}
+
+}
+
+
+\newcommand{\again}
+{
+
+\fancyhf{}
+\fancyhead[R]{\textbf{\pcode}}
+\stepcounter{qpage}
+\fancyhead[C]{\href{http://www.sadiqpk.org}{\theqpage}}
+
+\ifthenelse{\isodd{\theqpage}}{
+\ifthenelse{\value{pager}>\value{qpage}}{
+\fancyfoot[R]{\textbf{Turn over}}}{}}{}
+}
+
+
+\newcommand{\ud}{\,\mathrm{d}}
+
+
+\newcommand{\sectionall}{
+\begin{center}
+{\em Section I (Basics of Civil Engineering) and Section II (Basics of Mechanical Engineering)\\
+are to be answered in} \textbf{separate} {\em answer books.\\
+Assume suitable data wherever necessary.}
+\end{center}
+}
+
+
+\newcommand{\separate}{
+\begin{center}
+{\em Answer Section A and B in }\textbf{separate }{\em answer books.}
+\end{center}}
+
+
+\newcommand{\sectionA}{
+
+\begin{center}
+\textbf{Section I (Basics of Civil Engineering)}
+\end{center}}
+
+
+\newcommand{\sectionB}{
+
+\begin{center}
+\textbf{Section II (Basics of Mechanical Engineering)}
+\end{center}}
+
+
+\newcommand{\sectionC}{
+
+\begin{center}
+\textbf{Section I (Basics of Electrical Engineering)}
+\end{center}}
+
+
+\newcommand{\sectionD}{
+
+\begin{center}
+\textbf{Section II (Basics of Electronics and Communication Engineering)}
+\end{center}}
+
+
+\newcommand{\sectionEE}{
+
+\begin{center}
+\textbf{Section A (Engineering Economics)}
+\end{center}}
+
+\newcommand{\sectionPM}{
+
+\begin{center}
+\textbf{Section B (Principles of Management)}
+\end{center}}
+
+
+\newcommand{\iitem}{
+\begin{enumerate}
+\item }
+
+\newcommand{\ene}{
+
+\end{enumerate}
+\ifthenelse{\thetmppage < \thepage}{\again \stepcounter{tmppage}}{}
+}
+
+
+\newcommand{\comb}[1]{
+\begin{center}
+{ \textbf{COMBINED FIRST AND SECOND SEMESTER B.TECH. (ENGINEERING)}}\\
+{ \textbf{DEGREE EXAMINATION, #1}}
+\end{center}
+}
+
+
+\newcommand{\semthree}[1]{
+\begin{center}
+{ \textbf{THIRD SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\semfour}[1]{
+\begin{center}
+{ \textbf{FOURTH SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\semfive}[1]{
+\begin{center}
+{ \textbf{FIFTH SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\semsix}[1]{
+\begin{center}
+{ \textbf{SIXTH SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\semseven}[1]{
+\begin{center}
+{ \textbf{SEVENTH SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\semeight}[1]{
+\begin{center}
+{ \textbf{EIGHTH SEMESTER B.TECH. (ENGINEERING) DEGREE EXAMINATION}}\\
+{ \textbf{#1}}
+\end{center}
+}
+
+
+\newcommand{\sembt}[2][\sem]{  
+\begin{center}
+{\large\textbf{#1 SEMESTER B.TECH. (ENGINEERING) DEGREE}}\\
+{\large\textbf{EXAMINATION, #2}}
+\end{center}
+}
+
+
+\newcommand{\sub}[2][2009]{
+
+\begin{center}
+{ #2\\
+(#1 Admissions)
+}
+\end{center}
+}
+
+
+\newcommandtwoopt{\maxtime}[2][Three][70]{
+\noindent \begin{tabular}{@{}p{0.5\textwidth}>{\raggedleft\arraybackslash} p{0.5\textwidth}}
+Time: #1 Hours & {      Maximum: #2 Marks}
+\end{tabular}
+}
+
+
+\newcommand{\partA}{
+
+\begin{center}
+%\def \cval{est}
+\textbf{Part A}\\
+{\em Answer }\textbf{all} {\em questions}
+\end{center}
+
+}
+
+
+\newcommand{\partB}{
+
+\suspend{enumerate}
+
+\begin{center}
+\textbf{Part B}\\
+{\em Answer any} \textbf{four} {\em questions}.
+\end{center}
+%\cval
+\resume{enumerate}
+
+%\setcounter{enumi}{\cval}
+
+}
+
+\newcommand{\partBt}{
+
+\suspend{enumerate}
+
+\begin{center}
+\textbf{Part B}\\
+{\em Answer any} \textbf{two} {\em questions}.
+\end{center}
+%\cval
+\resume{enumerate}
+
+%\setcounter{enumi}{\cval}
+
+}
+
+
+\newcommand{\partC}{
+
+\suspend{enumerate}
+\begin{center}
+\textbf{Part C}\\
+{\em Answer} \textbf{all} {\em questions}.
+\end{center}
+\resume{enumerate}
+
+}
+
+
+\newcommand{\partCo}{
+
+\suspend{enumerate}
+\begin{center}
+\textbf{Part C}\\
+{\em Answer section }($a$) \textbf{or} {\em section }($b$) {\em of each question}.
+\end{center}
+\resume{enumerate}
+
+}
+
+
+\newcommand{\marko}[1]{
+%\suspend{enumerate}
+%\suspend{enumerate}
+%\begin{adjustwidth}{-1cm}{-1cm}
+\hfill  \char255\hspace{-20cm}\begin{tabular}{@{}>{\raggedleft\arraybackslash} p{\textwidth}@{\hspace{-0.6cm}}}
+\raggedleft{(#1 marks)}
+\end{tabular}
+%\end{adjustwidth}
+%\resume{enumerate}\vspace{1cm}
+%\resume{enumerate}
+}
+
+
+\newcommand{\marka}{
+%\suspend{enumerate}
+%\suspend{enumerate}
+%\begin{adjustwidth}{-1cm}{-1cm}
+\hfill  \char255\hspace{-20cm}\begin{tabular}{@{}>{\raggedleft\arraybackslash} p{\textwidth}@{\hspace{-0.5cm}}}
+\raggedleft{(1 mark)}
+\end{tabular}
+%\end{adjustwidth}
+%\resume{enumerate}\vspace{1cm}
+%\resume{enumerate}
+}
+
+
+\newcommand{\markA}{
+\ifthenelse{\lengthtest{\parindent>0pt}}{
+\def \more{\leftmargin}}{\def \more{17.62482pt}}
+\begin{tabular}{@{\hspace{1pt}}>{\raggedleft\arraybackslash} p{\textwidth - \more}@{}}
+\raggedleft{(5 $\times$ 2 $=$ 10 marks)}
+\end{tabular}
+}
+
+
+\newcommand{\markB}{
+
+\ifthenelse{\lengthtest{\parindent>0pt}}{
+\def \more{\leftmargin}}{\def \more{17.62482pt}}
+\begin{tabular}{@{\hspace{1pt}}>{\raggedleft\arraybackslash} p{\textwidth -\more}@{}}
+\raggedleft{(4 $\times$ 5 $=$ 20 marks)}
+\end{tabular}
+
+}
+
+
+\newcommand{\markC}{
+\ifthenelse{\lengthtest{\parindent>0pt}}{
+\def \more{\leftmargin}}{\def \more{17.62482pt}}
+\begin{tabular}{@{\hspace{1pt}}>{\raggedleft\arraybackslash} p{\textwidth -\more}@{}}
+\raggedleft{(4 $\times$ 10 $=$ 40 marks)}
+\end{tabular}
+}
+
+
+\newcommand{\markany}[3]{
+\begin{tabular}{@{}>{\raggedleft\arraybackslash} p{\textwidth}@{}}
+\raggedleft{(#1 $\times$ #2 $=$ #3 marks)}
+\end{tabular}
+}
+
+
+
+\newcommand{\Or}{
+
+\suspend{enumerate}
+\begin{center}
+{\em Or}
+\end{center}
+\resume{enumerate}
+}
+
+\newcommand{\enu}[1]{
+\setcounter{enumi}{#1-1}}
+

@@ -1,0 +1,196 @@
+#!/bin/bash
+
+
+# This file is part of Calicut University Question Paper Collection.
+#
+# Copyright (c) 2012-2015 Mohammed Sadik P. K. <sadiq (at) sadiqpk (d0t) org>.
+# License: GNU GPLv3 or later
+#
+# The Question Paper Collection is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# Foobar is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+
+HOME=$(pwd)
+SRC="src"
+VERSION="1.00"
+UPDATED="2015-07-08"
+SYEAR="09"
+BIN=bin
+QFILE=qpaper
+LOG=log
+LATEX=pdflatex
+ADDEDBATCHES=""
+
+
+# LaTeX template
+
+BEGIN="\documentclass[12pt]{article}\n"
+
+ARG1="\input{${SRC}/common/include}\n"
+
+ARG2="\\\addtolength{\\\textheight}{1.5cm}\n"
+
+ARG3="\input{${SRC}/common/hacks}\n\
+\input{${SRC}/common/layout}\n\
+\input{${SRC}/common/define}\n"
+
+BEGINDOC='\\begin{document}\n'
+ENDDOC='\\end{document}'
+
+ARG4="\input{${SRC}/common/main.tex}\n"
+
+ARG5="\n"
+
+# You may add as many arguments as you require.
+# But change the code accordingly.
+
+make_make ()
+{
+    # This function creates a Makefile to compile the LaTeX files
+    if [ "$CURDIR" = "$DIR" ]
+    then
+	return 0
+    fi
+
+    if [ -z $DONE ]
+    then
+	echo -e "BIN = $BIN" > ${HOME}/Makefile
+	echo -e "SRC = $SRC" >> ${HOME}/Makefile
+	echo -e "QFILE = $QFILE" >> ${HOME}/Makefile
+	echo -e "LOG = $LOG" >> ${HOME}/Makefile
+	echo -e "LATEX = $LATEX" >> ${HOME}/Makefile
+	echo -e "\n\n" >> ${HOME}/Makefile
+	echo "gen:" >> ${HOME}/Makefile
+	echo -e '\t$(LATEX) -output-directory $(LOG) $(SRC)/$(SEM)/$(QFILE)_$(SEM)_$(BATCH).tex' >> ${HOME}/Makefile
+	echo -e '\tmv $(LOG)/$(QFILE)_$(SEM)_$(BATCH).pdf $(BIN)' >> ${HOME}/Makefile
+	echo -e "\n\n" >> ${HOME}/Makefile
+	echo "clean:" >> ${HOME}/Makefile
+	echo -e '\trm -rf $(LOG)/* $(BIN)/*\n\n' >> ${HOME}/Makefile
+    fi
+
+    echo -n "$DIR: " >> ${HOME}/Makefile
+    echo -e "SEM = $DIR" >> ${HOME}/Makefile
+    echo -e "$DIR: gen" >> ${HOME}/Makefile
+
+    for batch in $(echo $BATCHES | tr " " "\n")
+    do
+	if echo " $ADDED_BATCHES " | grep -qv " $batch "
+	then
+	    echo -e "$batch:" >> ${HOME}/Makefile
+	    echo -e "\t\$(eval BATCH = $batch)\n" >> ${HOME}/Makefile
+	    ADDED_BATCHES="$ADDED_BATCHES $batch"  
+	fi
+
+    done
+    DID=""
+    
+    DONE="done"
+    CURDIR=$DIR
+}
+
+make_compile ()
+{
+    for batch in $BATCHES
+    do
+	echo "make $DIR BATCH=$batch" >> ${HOME}/compile
+    done
+}
+
+
+make_template ()
+{
+    BATCHUP=$(echo $BATCH | tr 'a-z' 'A-Z')
+    DEF1="\def \syllabus{$BATCHUP $SYEAR}\n\
+\def \\\version{$VERSION}\n\
+\def \updated{$UPDATED}\n\
+\def \year{\$$SEM\$}\n"
+
+    if [ -f "./qpaper_${DIR}_${BATCH}.tex" ]
+    then
+    	mv "./qpaper_${DIR}_${BATCH}.tex" "./qpaper_${DIR}_${BATCH}_old.tex"
+    fi
+
+    echo -e "$BEGIN" > ./${QFILE}_${DIR}_${BATCH}.tex
+    echo -e "$ARG1\n$ARG2\n$ARG3" >> ./${QFILE}_${DIR}_${BATCH}.tex
+    echo -e "$BEGINDOC" >> ./${QFILE}_${DIR}_${BATCH}.tex
+
+    echo -e "$DEF1" >> ./${QFILE}_${DIR}_${BATCH}.tex
+
+    echo -e "$ARG4\n$ARG5" >> ./${QFILE}_${DIR}_${BATCH}.tex
+    echo -e "$ALLFILES"  >> ./${QFILE}_${DIR}_${BATCH}.tex
+    echo -e "$ENDDOC" >> ./${QFILE}_${DIR}_${BATCH}.tex
+
+    echo "Directory $SRC/$DIR/$SUBDIR completed..."
+}
+
+
+set_sem ()
+{
+    if [ "$DIR" = "s1s2" ]
+    then
+	SEM="\\\text{S}_1\\\text{S}_2"
+    else
+	SEM="$(echo $DIR | tr 'a-z' 'A-Z')"
+	SEM="\\\text{${SEM%[0-9]}}_${SEM#[A-Z]}"
+    fi
+}
+
+
+cd ${SRC}
+
+DIRS=$(ls -d s*)
+echo -e "#!/bin/bash" > ${HOME}/compile
+
+for DIR in $DIRS
+do
+    cd "$DIR"
+    set_sem
+    SUBDIRS=$(ls)
+
+    BATCHES=""
+    for SUBDIR in $SUBDIRS
+    do
+
+	if [ -d "${SUBDIR}" ]
+	then
+	    BATCH="${SUBDIR}"
+	    BATCHES="${BATCHES} ${BATCH}"
+	else
+	    BATCH=""
+	fi
+
+	if [ -n "$BATCH" ]
+	then
+	    cd $BATCH
+	    FILES=$(ls *.tex)
+	    ALLFILES=""
+	    for FILE in $FILES
+	    do
+		FILE_PATH="${SRC}/${DIR}/${SUBDIR}/${FILE}"
+		ALLFILES="${ALLFILES}\n\n\\\newpage\n\n"
+		ALLFILES="${ALLFILES}\input{$FILE_PATH}\n\n"
+	    done
+	    cd ..
+	    make_template
+
+	fi
+
+    done
+    make_make
+    make_compile
+    cd "$HOME/${SRC}"
+done
+echo ""
+echo "Making template files completed"
+echo "Now run './compile' to compile the files"
